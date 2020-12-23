@@ -60,32 +60,39 @@ void init_Switches_LEDs_Microphone_and_Buzzer(void)
 
 void Game_Menu(void)
 {
-	// int USER_BUTTON = USER_BUTTON_GPIO->IDR;
+	// For Matrix, 0 is resetting the LED and 1 is for the LED to be on.
+	// For example:
+	// LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	// line_and_push(1, 1, 1); This is location of the line is in binary, so detailing this is the 8th line due to 0 being a line 
+	// By the way, everything is written backwards, updates will fix this
 	
-	// For Matrix, 16 is reset LED and 0 is for on LED
-	// LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
-	
-	main_LCD("Welcome to HammerTime!", 0x80);
-	main_LCD("Press Blue Button", 0xc0); // Doesnt work yet in progress
+	main_LCD("Welcome to Snake", 0x80);
 	
 	Set_Led_Digit(1, 11);
 	delay_blocking(0.01);
 	Set_Led_Digit(2, 12);
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -98,19 +105,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -123,19 +137,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -147,20 +168,27 @@ void Game_Menu(void)
 	CLR_Matrix();
 	
 	delay_blocking(0.01);
-	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -173,44 +201,58 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
 	
 	Set_RGB_func(1, 4);
+	Set_RGB_func(2, 8);
+	Set_RGB_func(3, 8);
 	
 	CLR_Matrix();
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -223,19 +265,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -248,19 +297,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -273,19 +329,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -298,19 +361,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -322,19 +392,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -346,43 +423,57 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
 	
 	Set_RGB_func(2, 3);
 	Set_RGB_func(3, 8);
-	
+
 	CLR_Matrix();
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -394,19 +485,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -418,19 +516,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -442,19 +547,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -466,19 +578,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -490,19 +609,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -513,19 +639,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -536,19 +669,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -559,19 +699,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -582,19 +729,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -605,19 +759,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -628,19 +789,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -651,19 +819,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -674,19 +849,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -697,19 +879,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -720,19 +909,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -743,19 +939,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -766,19 +969,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -789,19 +999,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -812,19 +1029,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -836,19 +1060,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -860,19 +1091,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 0, 16);
+	LED_matrix_led_func(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -884,19 +1122,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 16, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 16, 16, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -908,19 +1153,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -932,19 +1184,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 0, 16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 16, 0, 0, 16);
+	LED_matrix_led_func(0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 0, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16, 0, 16);
+	LED_matrix_led_func(0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 16, 0, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 16, 0);
+	LED_matrix_led_func(0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -956,43 +1215,26 @@ void Game_Menu(void)
 	
 	delay_blocking(0.01);
 	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 0, 16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 16, 0, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0);
+	line_and_push(1, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 0, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 0, 16, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+	line_and_push(1, 0, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 1);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0, 16);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+	line_and_push(0, 1, 0);
 	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16, 0, 0, 0, 0, 16, 16, 16, 0);
-	delay_blocking(0.001);
-	
-	delay_blocking(0.01);
-	
-	Set_RGB_func(2, 1);
-	Set_RGB_func(3, 8);
-	
-	CLR_Matrix();
-	
-	delay_blocking(0.01);
-	
-	LED_matrix_func(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0);
-	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 0, 0, 16, 16, 16, 0, 0, 16, 16, 0, 0, 0, 0, 0, 0, 16);
-	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 0);
-	delay_blocking(0.001);
-	LED_matrix_func(0, 0, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 0, 16, 16);
-	delay_blocking(0.001);
-	LED_matrix_func(16, 0, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 16, 0, 0);
-	delay_blocking(0.001);
-	LED_matrix_func(16, 16, 0, 16, 16, 0, 16, 16, 0, 16, 0, 16, 16, 16, 16, 16, 16, 0, 16);
-	delay_blocking(0.001);
-	LED_matrix_func(0, 16, 0, 16, 16, 16, 16, 16, 0, 16, 16, 16, 0, 0, 0, 0, 16, 16, 0);
+	LED_matrix_led_func(1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0);
+	line_and_push(0, 0, 1);
 	delay_blocking(0.001);
 	
 	delay_blocking(0.01);
@@ -1002,56 +1244,36 @@ void Game_Menu(void)
 	
 	CLR_Matrix();
 	
-	delay_blocking(0.017);
+	delay_blocking(0.01);
+	
+	LED_matrix_led_func(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	line_and_push(1, 1, 1);
+	delay_blocking(0.001);
+	LED_matrix_led_func(1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1);
+	line_and_push(1, 1, 0);
+	delay_blocking(0.001);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 1);
+	delay_blocking(0.001);
+	LED_matrix_led_func(1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(1, 0, 0);
+	delay_blocking(0.001);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 1);
+	delay_blocking(0.001);
+	LED_matrix_led_func(0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0);
+	line_and_push(0, 1, 0);
+	delay_blocking(0.001);
+	LED_matrix_led_func(1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1);
+	line_and_push(0, 0, 1);
+	delay_blocking(0.001);
+	
+	delay_blocking(0.01);
 	
 	Set_RGB_func(2, 0);
 	Set_RGB_func(3, 8);
 	
-	delay_blocking(0.017);
+	CLR_Matrix();
 	
-	Set_RGB_func(1, 7);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 6);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 5);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 4);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 3);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 2);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-	Set_RGB_func(1, 1);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
-	
-	delay_blocking(0.017);
-	
-  Set_RGB_func(1, 0);
-	Set_RGB_func(2, 8);
-	Set_RGB_func(3, 8);
+
 }
